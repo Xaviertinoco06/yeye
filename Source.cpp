@@ -70,8 +70,7 @@ int main() {
 
 	return 0;
 }
-void FundidoANegro(ALLEGRO_BITMAP* img)
-{
+void FundidoANegro(ALLEGRO_BITMAP* img){
 	// Muestra la imagen y realiza un fundido a Negro
 
 	int anchoImg = al_get_bitmap_width(img);
@@ -79,7 +78,6 @@ void FundidoANegro(ALLEGRO_BITMAP* img)
 	ALLEGRO_BITMAP* imgNegro = al_create_bitmap(anchoImg, altoImg);
 	al_set_target_bitmap(imgNegro);
 	al_clear_to_color(al_map_rgb_f(0, 0, 0));
-
 	al_set_target_backbuffer(ventana);
 
 	int alfa;
@@ -169,11 +167,14 @@ int menu() {
 
 			if (x >= 193 && x <= 874 && y >= 347 && y <= 462) {
 				botones[0] = 1;
-				if (Evento.mouse.button & 1)
-					
+				if (Evento.mouse.button & 1) {
+					FundidoANegro(yeye);
 					jugar();
-				FundidoANegro(yeye);
-				al_play_sample(efecto, 1.0, 0.0, 1.0, ALLEGRO_PLAYMODE_ONCE,0);
+					
+					al_play_sample(efecto, 1.0, 0.0, 1.0, ALLEGRO_PLAYMODE_ONCE, 0);
+				}
+					
+					
 			}
 			else {
 				if (x >= 193 && x <= 874 && y >= 495 && y <= 610) {
